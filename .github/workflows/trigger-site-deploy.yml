@@ -1,0 +1,42 @@
+name: Trigger writing-materials-site deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch-site-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate dispatch token
+        shell: bash
+        env:
+          SITE_DISPATCH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+        run: |
+          if [[ -z "$SITE_DISPATCH_TOKEN" ]]; then
+            echo "Missing repository secret SITE_DISPATCH_TOKEN."
+            echo "Create a fine-grained PAT scoped to Maple-pro/writing-materials-site with Contents: write, then save it in this repository as SITE_DISPATCH_TOKEN."
+            exit 1
+          fi
+
+      - name: Trigger site repository
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+          VAULT_SHA: ${{ github.sha }}
+          VAULT_REF: ${{ github.ref_name }}
+        run: |
+          curl --fail-with-body \
+            --request POST \
+            --url https://api.github.com/repos/Maple-pro/writing-materials-site/dispatches \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data "{\"event_type\":\"vault-updated\",\"client_payload\":{\"sha\":\"${VAULT_SHA}\",\"ref\":\"${VAULT_REF}\"}}"
+
+          echo "Triggered writing-materials-site for vault commit ${VAULT_SHA}."
