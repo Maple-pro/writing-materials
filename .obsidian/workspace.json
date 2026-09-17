@@ -24,17 +24,30 @@
           {
             "id": "3c54c5de0605e156",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
                 "file": "素材来源库.md",
                 "mode": "preview",
                 "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "d6094d7c2d9cc168",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "好文.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -100,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "素材来源库.md",
+                "file": "官媒阅读与素材整理机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "素材来源库.md",
+                "file": "官媒阅读与素材整理机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "素材来源库.md"
+                "file": "官媒阅读与素材整理机制.md"
               }
             }
           }
@@ -161,10 +174,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3c54c5de0605e156",
+  "active": "0b742830ea18c4c6",
   "lastOpenFiles": [
-    "官媒阅读与素材整理机制.md",
     "素材来源库.md",
+    "好文.md",
+    "官媒阅读与素材整理机制.md",
     "05-省情市情库/00-年度重点/2026-武汉年度重点.md",
     "05-省情市情库/00-年度重点/2026-湖北年度重点.md",
     "05-省情市情库/01-湖北省/湖北省情总览.md",
@@ -197,7 +211,6 @@
     "05-省情市情库/未命名.md",
     "00-每日阅读/TEMPLATE.md",
     "01-专题库/TEMPLATE.md",
-    "01-专题库/12-综合专题/为民造福.md",
-    "01-专题库/12-综合专题/底线思维.md"
+    "01-专题库/12-综合专题/为民造福.md"
   ]
 }
