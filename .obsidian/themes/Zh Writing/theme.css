@@ -1,0 +1,466 @@
+/*
+  Zh Writing — 中文长文写作主题
+  目标：舒适、克制、适合中文长文与知识笔记。
+  标题层级使用相同字号，通过字体、字重、字距、边饰和间距区分。
+*/
+
+:root {
+  --zh-song: "Times New Roman","方正小标宋简体", "小标宋", "FZXiaoBiaoSong-B05S", "STZhongsong", "Songti SC", serif;
+  --zh-serif: "Times New Roman","Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --zh-sans: "SimHei", "黑体","Source Han Sans SC", "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --zh-kai: "楷体_GB2312","KaiTi","LXGW WenKai", "霞鹜文楷", "KaiTi", "STKaiti", serif;
+  --zh-mono: "Maple Mono NF CN", "Sarasa Mono SC", "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+
+  --zh-text-size: 17px;
+  --zh-heading-size: 1.12em;
+  --zh-heading-large-size: 2em;
+  --zh-line-height: 1.9;
+  --zh-content-width: 860px;
+
+  --zh-radius: 8px;
+  --zh-soft-radius: 6px;
+  --zh-border-width: 1px;
+}
+
+.theme-light {
+  --background-primary: #fbfaf7;
+  --background-primary-alt: #f5f2ec;
+  --background-secondary: #f2efe8;
+  --background-secondary-alt: #ebe7df;
+  --background-modifier-border: #d9d3c8;
+  --background-modifier-hover: rgba(79, 70, 60, 0.06);
+  --background-modifier-active-hover: rgba(79, 70, 60, 0.10);
+
+  --text-normal: #2f2b27;
+  --text-muted: #756d65;
+  --text-faint: #a39a90;
+  --text-accent: #7a5541;
+  --text-accent-hover: #5f4031;
+
+  --interactive-accent: #7a5541;
+  --interactive-accent-hover: #5f4031;
+
+  --zh-quote-bg: #f4efe7;
+  --zh-quote-border: #bca892;
+  --zh-inline-code-bg: #efeae2;
+  --zh-code-bg: #f6f8fa;
+  --zh-code-text: #2f3337;
+  --zh-selection: rgba(157, 126, 92, 0.22);
+}
+
+.theme-dark {
+  --background-primary: #1f1d1a;
+  --background-primary-alt: #24211e;
+  --background-secondary: #191715;
+  --background-secondary-alt: #161412;
+  --background-modifier-border: #3a3530;
+  --background-modifier-hover: rgba(255, 255, 255, 0.05);
+  --background-modifier-active-hover: rgba(255, 255, 255, 0.08);
+
+  --text-normal: #ded8cf;
+  --text-muted: #a9a096;
+  --text-faint: #756e67;
+  --text-accent: #d1a17f;
+  --text-accent-hover: #e0b493;
+
+  --interactive-accent: #b98563;
+  --interactive-accent-hover: #c99774;
+
+  --zh-quote-bg: #2a2622;
+  --zh-quote-border: #7e6a59;
+  --zh-inline-code-bg: #302b27;
+  --zh-code-bg: #f4f5f7;
+  --zh-code-text: #2f3337;
+  --zh-selection: rgba(196, 154, 113, 0.25);
+}
+
+body {
+  --font-interface: var(--zh-sans);
+  --font-text: var(--zh-serif);
+  --font-monospace: var(--zh-mono);
+  --file-line-width: var(--zh-content-width);
+
+  --line-height-normal: var(--zh-line-height);
+  --line-height-tight: 1.55;
+
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+}
+
+::selection {
+  background: var(--zh-selection);
+}
+
+/* ===== 主编辑区域 ===== */
+.markdown-reading-view .markdown-preview-sizer,
+.markdown-source-view.mod-cm6 .cm-contentContainer {
+  width: min(100%, var(--zh-content-width));
+  max-width: var(--zh-content-width);
+  margin-inline: auto;
+}
+
+.markdown-reading-view .markdown-preview-sizer {
+  padding: 2.2rem 2rem 6rem;
+}
+
+.markdown-source-view.mod-cm6 .cm-scroller {
+  font-family: var(--zh-serif);
+  font-size: var(--zh-text-size);
+  line-height: var(--zh-line-height);
+}
+
+.markdown-source-view.mod-cm6 .cm-content {
+  padding: 2.2rem 2rem 6rem;
+}
+
+.markdown-preview-view {
+  font-family: var(--zh-serif);
+  font-size: var(--zh-text-size);
+  line-height: var(--zh-line-height);
+  letter-spacing: 0.015em;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== 中文段落 ===== */
+.markdown-preview-view p {
+  margin: 0.7em 0 1em;
+  line-height: var(--zh-line-height);
+}
+
+.markdown-preview-view p + p {
+  margin-top: 0.8em;
+}
+
+/* ===== 标题：统一字号，以风格区分 ===== */
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.markdown-source-view.mod-cm6 .HyperMD-header {
+  font-size: var(--zh-heading-size) !important;
+  line-height: 1.55;
+  color: var(--text-normal);
+  border: 0;
+}
+
+/* H1：宋体/衬线，粗，留白最大 */
+.markdown-preview-view h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  font-size: var(--zh-heading-large-size) !important;
+  line-height: 2;
+  color: var(--text-normal);
+  border: 0;
+  font-family: var(--zh-song);
+  letter-spacing: 0.08em;
+  margin-top: 2.6em;
+  margin-bottom: 1.15em;
+  text-align: center;
+}
+
+.markdown-preview-view h1 {
+  padding-bottom: 0.38em;
+}
+
+/* H2：黑体/无衬线，粗体 */
+.markdown-preview-view h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  font-family: var(--zh-sans);
+  letter-spacing: 0.045em;
+  margin-top: 2.2em;
+  margin-bottom: 0.95em;
+}
+
+/* H3：楷体，强调感更强 */
+.markdown-preview-view h3,
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  font-family: var(--zh-kai);
+  letter-spacing: 0.035em;
+  margin-top: 1.95em;
+  margin-bottom: 0.82em;
+}
+
+/* H4：宋体半粗 + 左侧短线 */
+.markdown-preview-view h4,
+.markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  font-family: var(--zh-serif);
+  letter-spacing: 0.025em;
+  margin-top: 1.7em;
+  margin-bottom: 0.72em;
+}
+
+.markdown-preview-view h4 {
+  padding-left: 0.65em;
+  border-left: 3px solid var(--text-accent);
+}
+
+/* H5：黑体中等字重 */
+.markdown-preview-view h5,
+.markdown-source-view.mod-cm6 .HyperMD-header-5 {
+  font-family: var(--zh-sans);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: 1.5em;
+  margin-bottom: 0.62em;
+  color: var(--text-muted);
+}
+
+/* H6：楷体、弱化 */
+.markdown-preview-view h6,
+.markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  font-family: var(--zh-kai);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  margin-top: 1.35em;
+  margin-bottom: 0.55em;
+  color: var(--text-muted);
+}
+
+/* Live Preview 标题块间距 */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-1 { margin-top: 1.7em; }
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-2 { margin-top: 1.35em; }
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-3 { margin-top: 1.2em; }
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-4 { margin-top: 1em; }
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-5 { margin-top: 0.8em; }
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-6 { margin-top: 0.7em; }
+
+/* ===== 引用 ===== */
+.markdown-preview-view blockquote {
+  margin: 1.4em 0;
+  padding: 0.9em 1.15em;
+  background: var(--zh-quote-bg);
+  border-left: 4px solid var(--zh-quote-border);
+  border-radius: 0 var(--zh-soft-radius) var(--zh-soft-radius) 0;
+  color: var(--text-muted);
+  font-family: var(--zh-kai);
+  font-size: 0.98em;
+  line-height: 1.85;
+}
+
+.markdown-preview-view blockquote p {
+  margin: 0.3em 0;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-quote {
+  font-family: var(--zh-kai);
+  color: var(--text-muted);
+  background: var(--zh-quote-bg);
+}
+
+.markdown-source-view.mod-cm6 .cm-quote {
+  color: var(--zh-quote-border);
+}
+
+/* ===== 行内代码 ===== */
+.markdown-preview-view code,
+.markdown-source-view.mod-cm6 .cm-inline-code {
+  font-family: var(--zh-mono);
+  font-size: 0.9em;
+  background: var(--zh-inline-code-bg);
+  color: var(--text-normal);
+  border-radius: 5px;
+  padding: 0.12em 0.35em;
+  border: 1px solid color-mix(in srgb, var(--background-modifier-border) 75%, transparent);
+}
+
+/* ===== 代码块：统一浅色背景 ===== */
+.markdown-preview-view pre,
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  font-family: var(--zh-mono);
+  background: var(--zh-code-bg);
+  color: var(--zh-code-text);
+}
+
+.markdown-preview-view pre {
+  border-radius: var(--zh-radius);
+  border: 1px solid #d8dee4;
+  padding: 1.05rem 1.15rem;
+  margin: 1.4em 0;
+  line-height: 1.65;
+  box-shadow: none;
+  overflow-x: auto;
+}
+
+.markdown-preview-view pre code {
+  background: transparent;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  font-size: 0.9em;
+  border-left: 1px solid #d8dee4;
+  border-right: 1px solid #d8dee4;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
+  border-top: 1px solid #d8dee4;
+  border-radius: var(--zh-radius) var(--zh-radius) 0 0;
+  padding-top: 0.7em;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-end {
+  border-bottom: 1px solid #d8dee4;
+  border-radius: 0 0 var(--zh-radius) var(--zh-radius);
+  padding-bottom: 0.7em;
+}
+
+.theme-dark .markdown-preview-view pre,
+.theme-dark .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  background: #f4f5f7;
+  color: #2f3337;
+}
+
+/* ===== 列表 ===== */
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  padding-left: 1.65em;
+}
+
+.markdown-preview-view li {
+  margin: 0.2em 0;
+}
+
+.markdown-preview-view li::marker {
+  color: var(--text-muted);
+}
+
+/* ===== 分隔线 ===== */
+.markdown-preview-view hr {
+  border: 0;
+  border-top: 1px solid var(--background-modifier-border);
+  margin: 2.2em auto;
+  width: 72%;
+}
+
+/* ===== 链接 ===== */
+a,
+.cm-hmd-internal-link,
+.cm-link {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.markdown-preview-view a {
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--text-accent) 45%, transparent);
+}
+
+.markdown-preview-view a:hover {
+  text-decoration-color: var(--text-accent);
+}
+
+/* ===== 表格 ===== */
+.markdown-preview-view table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.94em;
+}
+
+.markdown-preview-view th {
+  font-family: var(--zh-sans);
+  font-weight: 600;
+  background: var(--background-primary-alt);
+}
+
+.markdown-preview-view th,
+.markdown-preview-view td {
+  border: 1px solid var(--background-modifier-border);
+  padding: 0.55em 0.7em;
+}
+
+/* ===== 图片 ===== */
+.markdown-preview-view img {
+  border-radius: var(--zh-soft-radius);
+  display: block;
+  margin: 1.4em auto;
+}
+
+/* ===== Callout ===== */
+.callout {
+  border-radius: var(--zh-radius);
+  border-width: 1px;
+  box-shadow: none;
+}
+
+.callout-title {
+  font-family: var(--zh-sans);
+  font-weight: 600;
+}
+
+.callout-content {
+  font-family: var(--zh-serif);
+}
+
+/* ===== 脚注 ===== */
+.footnotes {
+  color: var(--text-muted);
+  font-size: 0.92em;
+  border-top: 1px solid var(--background-modifier-border);
+  margin-top: 2.5em;
+  padding-top: 1em;
+}
+
+/* ===== 标签 ===== */
+a.tag {
+  font-family: var(--zh-sans);
+  font-size: 0.82em;
+  border-radius: 999px;
+  padding: 0.16em 0.6em;
+  background: var(--background-primary-alt);
+  border: 1px solid var(--background-modifier-border);
+}
+
+/* ===== 侧边栏与界面克制化 ===== */
+.nav-file-title,
+.nav-folder-title,
+.workspace-tab-header-inner-title,
+.status-bar,
+.metadata-property-key,
+.metadata-property-value {
+  font-family: var(--zh-sans);
+}
+
+.workspace-tab-header-container,
+.status-bar {
+  box-shadow: none;
+}
+
+/* ===== 窄窗口适配 ===== */
+@media (max-width: 900px) {
+  :root {
+    --zh-text-size: 16px;
+  }
+
+  .markdown-reading-view .markdown-preview-sizer,
+  .markdown-source-view.mod-cm6 .cm-content {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+}
+
+/* ===== 打印 ===== */
+@media print {
+  body {
+    --zh-text-size: 12pt;
+  }
+
+  .markdown-preview-view {
+    color: #111;
+    background: #fff;
+  }
+
+  .markdown-reading-view .markdown-preview-sizer {
+    max-width: none;
+    padding: 0;
+  }
+
+  .markdown-preview-view pre {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,431 @@
+/*
+ * GovDoc CN — Chinese official-document inspired Obsidian theme
+ * Based on the layout principles of GB/T 9704-2012.
+ * This theme optimizes note reading/writing; it is not a legal typesetting engine.
+ */
+
+:root {
+  --govdoc-paper-width: 210mm;
+  --govdoc-text-width: 900mm;
+  --govdoc-top-margin: 37mm;
+  --govdoc-left-margin: 28mm;
+  --govdoc-body-size: 16pt;      /* 3号字 */
+  --govdoc-title-size: 22pt;     /* 2号字 */
+  --govdoc-line-height: 1.80;    /* ~22 lines / 225mm text block */
+
+  --govdoc-song: "方正小标宋简体", "小标宋", "FZXiaoBiaoSong-B05S", "STZhongsong", "Songti SC", serif;
+  --govdoc-fangsong: "仿宋_GB2312", "FangSong", "STFangsong", "华文仿宋", serif;
+  --govdoc-heiti: "SimHei", "黑体", "Heiti SC", "PingFang SC", sans-serif;
+  --govdoc-kaiti: "KaiTi_GB2312", "KaiTi", "STKaiti", "楷体", serif;
+  --govdoc-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.theme-light {
+  --background-primary: #ffffff;
+  --background-primary-alt: #fafafa;
+  --background-secondary: #f5f5f5;
+  --background-secondary-alt: #eeeeee;
+  --text-normal: #111111;
+  --text-muted: #666666;
+  --text-faint: #999999;
+  --interactive-accent: #8f1d1d;
+  --interactive-accent-hover: #a42626;
+  --text-accent: #8f1d1d;
+  --text-accent-hover: #a42626;
+}
+
+.theme-dark {
+  --background-primary: #1d1d1d;
+  --background-primary-alt: #202020;
+  --background-secondary: #181818;
+  --background-secondary-alt: #151515;
+  --text-normal: #e8e8e8;
+  --text-muted: #b5b5b5;
+  --text-faint: #888888;
+  --interactive-accent: #c55a5a;
+  --interactive-accent-hover: #d16a6a;
+  --text-accent: #d06a6a;
+  --text-accent-hover: #dd7c7c;
+}
+
+body {
+  --font-interface: var(--govdoc-ui);
+  --font-text: var(--govdoc-fangsong);
+  --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --file-line-width: 900px;
+}
+
+/* ---------- Reading view ---------- */
+.markdown-reading-view .markdown-preview-view {
+  font-family: var(--govdoc-fangsong);
+  font-size: var(--govdoc-body-size);
+  line-height: var(--govdoc-line-height);
+  letter-spacing: 0;
+}
+
+.markdown-reading-view .markdown-preview-sizer {
+  width: 100%;
+  max-width: var(--govdoc-text-width);
+  margin-inline: auto;
+  padding-top: 2.2rem;
+  padding-bottom: 5rem;
+}
+
+.markdown-preview-view p {
+  margin: 0;
+  text-indent: 2em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.markdown-preview-view p + p {
+  margin-top: 0;
+}
+
+/* Document title: Markdown H1 */
+.markdown-preview-view h1 {
+  font-family: var(--govdoc-song);
+  font-size: var(--govdoc-title-size);
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+  margin: 0 0 1.8em;
+  padding: 0;
+  color: var(--text-normal);
+}
+
+/* First structural level: 一、 */
+.markdown-preview-view h2 {
+  font-family: var(--govdoc-heiti);
+  font-size: var(--govdoc-body-size);
+  font-weight: 700;
+  line-height: var(--govdoc-line-height);
+  margin: 0;
+  padding: 0;
+  color: var(--text-normal);
+}
+
+/* Second structural level: （一） */
+.markdown-preview-view h3 {
+  font-family: var(--govdoc-kaiti);
+  font-size: var(--govdoc-body-size);
+  font-weight: 400;
+  line-height: var(--govdoc-line-height);
+  margin: 0;
+  padding: 0;
+  color: var(--text-normal);
+}
+
+/* Third structural level: 1. */
+.markdown-preview-view h4 {
+  font-family: var(--govdoc-fangsong);
+  font-size: var(--govdoc-body-size);
+  font-weight: 700;
+  line-height: var(--govdoc-line-height);
+  margin: 0;
+  padding: 0;
+  color: var(--text-normal);
+}
+
+/* Fourth structural level: （1） */
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  font-family: var(--govdoc-fangsong);
+  font-size: var(--govdoc-body-size);
+  font-weight: 400;
+  line-height: var(--govdoc-line-height);
+  margin: 0;
+  padding: 0;
+  color: var(--text-normal);
+}
+
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  text-align: left;
+}
+
+/* Headings behave as paragraph-leading text, not web-page section banners. */
+.markdown-preview-view :is(h2,h3,h4,h5,h6) + p {
+  margin-top: 0;
+}
+
+/* Lists are kept compact and aligned with official-document prose. */
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  margin-block: 0;
+  padding-left: 2em;
+}
+
+.markdown-preview-view li {
+  margin: 0;
+  padding: 0;
+}
+
+.markdown-preview-view li > p {
+  text-indent: 0;
+}
+
+/* Blockquote: note/explanation, visually restrained. */
+.markdown-preview-view blockquote {
+  font-family: var(--govdoc-fangsong);
+  font-size: 0.95em;
+  border-left: 2px solid var(--text-muted);
+  margin: 0.6em 0;
+  padding: 0 0 0 1em;
+  color: var(--text-muted);
+}
+
+.markdown-preview-view blockquote p {
+  text-indent: 0;
+}
+
+/* Tables: black-line office-document style. */
+.markdown-preview-view table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8em 0;
+  font-family: var(--govdoc-fangsong);
+  font-size: 0.88em;
+}
+
+.markdown-preview-view th,
+.markdown-preview-view td {
+  border: 1px solid var(--text-normal);
+  padding: 0.25em 0.5em;
+  vertical-align: middle;
+}
+
+.markdown-preview-view th {
+  font-family: var(--govdoc-heiti);
+  font-weight: 700;
+  text-align: center;
+  background: transparent;
+}
+
+/* Links should not dominate formal prose. */
+.markdown-preview-view a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+/* Inline code remains clearly technical. */
+.markdown-preview-view code {
+  font-size: 0.82em;
+}
+
+/* Horizontal rules: suitable for separator lines. */
+.markdown-preview-view hr {
+  border: 0;
+  border-top: 1px solid currentColor;
+  margin: 1em 0;
+}
+
+/* Images centered, no decorative rounding/shadows. */
+.markdown-preview-view img {
+  display: block;
+  margin: 0.8em auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ---------- Live Preview / editor ---------- */
+.markdown-source-view.mod-cm6 .cm-scroller {
+  font-family: var(--govdoc-fangsong);
+  font-size: var(--govdoc-body-size);
+  line-height: var(--govdoc-line-height);
+}
+
+.markdown-source-view.mod-cm6 .cm-contentContainer {
+  width: 100%;
+  max-width: var(--govdoc-text-width);
+  margin-inline: auto;
+}
+
+.markdown-source-view.mod-cm6 .cm-line {
+  padding-inline: 0;
+}
+
+/* Plain paragraph lines: approximate two-character first-line indent.
+ * Obsidian's editor is line-oriented, so exact natural-paragraph indentation
+ * cannot be guaranteed without affecting wrapped lines. Reading view is exact.
+ */
+
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  font-family: var(--govdoc-song);
+  font-size: var(--govdoc-title-size);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.45;
+  padding-top: 0.6em;
+  padding-bottom: 0.9em;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  font-family: var(--govdoc-heiti);
+  font-size: var(--govdoc-body-size);
+  font-weight: 700;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  font-family: var(--govdoc-kaiti);
+  font-size: var(--govdoc-body-size);
+  font-weight: 400;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  font-family: var(--govdoc-fangsong);
+  font-size: var(--govdoc-body-size);
+  font-weight: 700;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-5,
+.markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  font-family: var(--govdoc-fangsong);
+  font-size: var(--govdoc-body-size);
+  font-weight: 400;
+}
+
+/* ---------- Optional frontmatter classes ---------- */
+/* Use: cssclasses: [govdoc] */
+.govdoc.markdown-preview-view,
+.govdoc .markdown-preview-view {
+  font-family: var(--govdoc-fangsong);
+}
+
+/* Suppress normal paragraph indentation for special blocks. */
+.govdoc .no-indent,
+.govdoc .no-indent p,
+.markdown-preview-view .no-indent,
+.markdown-preview-view .no-indent p {
+  text-indent: 0;
+}
+
+/* Addressee / recipient line. Use <p class="recipient">... */
+.govdoc .recipient,
+.markdown-preview-view .recipient {
+  text-indent: 0;
+  text-align: left;
+}
+
+/* Signature/date blocks. */
+.govdoc .signature,
+.markdown-preview-view .signature {
+  text-indent: 0;
+  text-align: right;
+  padding-right: 2em;
+  margin-top: 1em;
+}
+
+/* Attachments. */
+.govdoc .attachment,
+.markdown-preview-view .attachment {
+  text-indent: 2em;
+}
+
+/* Red agency mark / document header, opt-in only. */
+.govdoc .agency-mark,
+.markdown-preview-view .agency-mark {
+  font-family: var(--govdoc-song);
+  font-size: 24pt;
+  line-height: 1.35;
+  color: #d40000;
+  text-align: center;
+  text-indent: 0;
+  margin: 0.5em 0 0.8em;
+}
+
+.govdoc .red-rule,
+.markdown-preview-view .red-rule {
+  border: 0;
+  border-top: 2px solid #d40000;
+  margin: 0.8em 0 1.8em;
+}
+
+/* ---------- Optional automatic heading numbering ----------
+ * Frontmatter: cssclasses: [govdoc-auto-number]
+ * Markdown headings should contain text only, without manual prefixes.
+ */
+.govdoc-auto-number.markdown-preview-view,
+.govdoc-auto-number .markdown-preview-view {
+  counter-reset: gov-h2;
+}
+
+.govdoc-auto-number.markdown-preview-view h2,
+.govdoc-auto-number .markdown-preview-view h2 {
+  counter-increment: gov-h2;
+  counter-reset: gov-h3 gov-h4 gov-h5;
+}
+
+.govdoc-auto-number.markdown-preview-view h2::before,
+.govdoc-auto-number .markdown-preview-view h2::before {
+  content: counter(gov-h2, cjk-ideographic) "、";
+}
+
+.govdoc-auto-number.markdown-preview-view h3,
+.govdoc-auto-number .markdown-preview-view h3 {
+  counter-increment: gov-h3;
+  counter-reset: gov-h4 gov-h5;
+}
+
+.govdoc-auto-number.markdown-preview-view h3::before,
+.govdoc-auto-number .markdown-preview-view h3::before {
+  content: "（" counter(gov-h3, cjk-ideographic) "）";
+}
+
+.govdoc-auto-number.markdown-preview-view h4,
+.govdoc-auto-number .markdown-preview-view h4 {
+  counter-increment: gov-h4;
+  counter-reset: gov-h5;
+}
+
+.govdoc-auto-number.markdown-preview-view h4::before,
+.govdoc-auto-number .markdown-preview-view h4::before {
+  content: counter(gov-h4) ".";
+}
+
+.govdoc-auto-number.markdown-preview-view h5,
+.govdoc-auto-number .markdown-preview-view h5 {
+  counter-increment: gov-h5;
+}
+
+.govdoc-auto-number.markdown-preview-view h5::before,
+.govdoc-auto-number .markdown-preview-view h5::before {
+  content: "（" counter(gov-h5) "）";
+}
+
+/* ---------- Print ---------- */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 37mm 26mm 35mm 28mm;
+  }
+
+  body,
+  .markdown-preview-view {
+    background: #fff;
+    color: #000;
+  }
+
+  .markdown-preview-sizer {
+    max-width: none;
+    padding: 0;
+  }
+
+  .markdown-preview-view {
+    font-size: 16pt;
+    line-height: 1.80;
+  }
+
+  .markdown-preview-view h1 {
+    font-size: 22pt;
+  }
+
+  .markdown-preview-view a {
+    text-decoration: none;
+  }
+}

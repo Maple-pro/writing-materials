@@ -1,0 +1,203 @@
+{
+  "main": {
+    "id": "3826fdb3c7277d8b",
+    "type": "split",
+    "children": [
+      {
+        "id": "0a22e13b95dc2ffc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0b742830ea18c4c6",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "官媒阅读与素材整理机制.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "3c54c5de0605e156",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "素材来源库.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e2a362f3b3e1509f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3a3c434f81898565",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9bf1d01b4b886026",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7d6ad3e09ddede03",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ce5f251d75964c29",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "34a2f78bdd7c5d33",
+    "type": "split",
+    "children": [
+      {
+        "id": "818cc12ce89c5fed",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d128e04eb986bc76",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "素材来源库.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d84dde39fb584d89",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "素材来源库.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "48912bcc58e00c3a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "dba02808a81146cd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "素材来源库.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "3c54c5de0605e156",
+  "lastOpenFiles": [
+    "官媒阅读与素材整理机制.md",
+    "素材来源库.md",
+    "05-省情市情库/00-年度重点/2026-武汉年度重点.md",
+    "05-省情市情库/00-年度重点/2026-湖北年度重点.md",
+    "05-省情市情库/01-湖北省/湖北省情总览.md",
+    "05-省情市情库/00-年度重点",
+    "05-省情市情库/01-湖北省/02-经济与产业/光电子信息产业.md",
+    "05-省情市情库/01-湖北省/06-政策库/TEMPLATE.md",
+    "05-省情市情库/02-武汉市/武汉市情总览.md",
+    "05-省情市情库/01-湖北省/03-改革与创新/数字湖北.md",
+    "05-省情市情库/02-武汉市/04-政策库",
+    "05-省情市情库/02-武汉市/03-改革与创新",
+    "05-省情市情库/02-武汉市/02-经济与产业",
+    "05-省情市情库/02-武汉市/01-战略与发展",
+    "05-省情市情库/01-湖北省/03-改革与创新/营商环境.md",
+    "05-省情市情库/01-湖北省/03-改革与创新/科技成果转化.md",
+    "05-省情市情库/01-湖北省/03-改革与创新/科技创新.md",
+    "05-省情市情库/01-湖北省/02-经济与产业/现代农业.md",
+    "05-省情市情库/01-湖北省/02-经济与产业/生命健康产业.md",
+    "05-省情市情库/01-湖北省/02-经济与产业/汽车产业.md",
+    "05-省情市情库/01-湖北省/02-经济与产业/湖北产业体系.md",
+    "05-省情市情库/01-湖北省/01-战略与发展/区域协调发展.md",
+    "05-省情市情库/01-湖北省/01-战略与发展/支点建设.md",
+    "05-省情市情库/01-湖北省/01-战略与发展/高质量发展.md",
+    "05-省情市情库/01-湖北省/01-战略与发展/湖北战略定位.md",
+    "05-省情市情库/01-湖北省/06-政策库",
+    "05-省情市情库/01-湖北省/05-生态与文化",
+    "05-省情市情库/01-湖北省/04-治理与民生",
+    "05-省情市情库/01-湖北省/03-改革与创新",
+    "05-省情市情库/01-湖北省/02-经济与产业",
+    "01-专题库/01-政治建设与党的建设/党的建设.md",
+    "05-省情市情库/未命名.md",
+    "00-每日阅读/TEMPLATE.md",
+    "01-专题库/TEMPLATE.md",
+    "01-专题库/12-综合专题/为民造福.md",
+    "01-专题库/12-综合专题/底线思维.md"
+  ]
+}
